@@ -1,0 +1,46 @@
+import pygame
+
+pygame.init()
+
+screan_width = 1500
+screan_height = 750
+
+
+screan = pygame.display.set_mode((screan_width, screan_height))
+
+font = pygame.font.SysFont("Algerian", 50)
+font2 = pygame.font.SysFont("Algerian", 75)
+
+img = pygame.image.load("karti.jpg")
+
+new_size = (1500, 750)
+
+new_img = pygame.transform.scale(img, new_size)
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
+
+    screan.blit(new_img, (0, 0))
+
+    text_welcome = font.render("Welcome to Game!", True, (200, 50, 100))
+    screan.blit(text_welcome, (500, 0))
+
+    text_start = font2.render("Start", True, (200, 50, 100))
+    screan.blit(text_start, (600, 175))
+
+    text_settings = font.render("Settings", True, (200, 50, 100))
+    screan.blit(text_settings, (600, 275))
+
+    text_support = font.render("Support", True, (200, 50, 100))
+    screan.blit(text_support, (605, 350))
+
+    text_friends = font.render("Friends", True, (200, 50, 100))
+    screan.blit(text_friends, (615, 425))
+
+    text_quit = font.render("Quit", True, (200, 50, 100))
+    screan.blit(text_quit, (660, 500))
+
+    pygame.display.update()
